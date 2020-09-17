@@ -1,0 +1,93 @@
+<div class="modal-header">
+  
+</div>
+<div class="modal-body">
+    <div class="card">
+        <div class="card-body">       
+
+            <div class="row">
+                <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"> -->
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="row mb-2 form-group">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <label class="form-check-label">Branch Name</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <input class="form-control" placeholder="Branch Name">
+                            </div>
+                        </div>
+                        <div class="row mb-2 form-group">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <label class="form-check-label">Branch Description</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <input class="form-control" placeholder="Branch Description">
+                            </div>
+                        </div>                       
+                        <div class="row mb-2 form-group">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <label class="form-check-label">Address 1</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <input class="form-control" placeholder="Address 1">
+                            </div>
+                        </div>
+                        <div class="row mb-2 form-group">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <label class="form-check-label">Address 2</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <input class="form-control" placeholder="Address 2">
+                            </div>
+                        </div>
+                        <div class="row mb-2 form-group">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <label class="form-check-label">Parent Company</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                               
+                            </div>
+                        </div>
+                        <div class="row mb-2 form-group">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <label class="form-check-label">State</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                               <select class="form-control">
+                                   <option value="">Please select state</option>
+                               </select>
+                            </div>
+                        </div>
+                        <div class="row mb-2 form-group">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <label class="form-check-label">City</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                <select class="form-control">
+                                    <option value="">Please select City</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                <!-- </div> -->
+            </div>            
+            
+        </div>
+    </div>
+</div>
+<div class="modal-footer">    
+    <div class="col-sm-12 col-xs-12 col-md-12 col-lg-12 col-xl-12">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+                <button type="button" class="btn btn-danger" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+                    Close
+                </button>
+            </div>
+            <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+                <button (click)="Save()" type="submit" class="btn btn-secondary float-right">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

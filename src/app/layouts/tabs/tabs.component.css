@@ -1,0 +1,24 @@
+.nav-item.nav-link.active{
+    background-color: #23A8B9;
+    color: white
+}
+
+.nav-item.nav-link{
+    color: black
+}
+
+.navbar{
+    background-color: #a7dce3;
+}
+
+.navbar-Header{
+    padding-left : 0!important;
+    padding-right : 0!important;
+}
+
+.card-body{
+    padding-left: 1.25rem;
+    padding-top: 0.5rem;
+    padding-right: 1.25rem;
+    padding-bottom: 0.5rem;
+}
