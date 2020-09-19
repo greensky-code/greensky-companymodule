@@ -33,8 +33,9 @@ export class LoginComponent implements OnInit {
 
   navigateToCompany() {
     console.log(this.loginForm.value)
-    this.LoginServiceService.login(this.loginForm.value).subscribe(success => {
-      if (success) {
+    this.LoginServiceService.login(this.loginForm.value).subscribe(res => {
+      if (res.statusCode == "OK") {
+        let success = res.response
         localStorage.setItem("companyId", success.companyId);
         localStorage.setItem('loginId', success.loginId)
         localStorage.setItem('companyName', success.companyName)

@@ -35,9 +35,11 @@ export class CompanyDetailsComponent implements OnInit {
     let companyId = localStorage.getItem('companyId')
     this.dtTrigger.next();
     this.companyService.getCompanyList(companyId).subscribe((response: any) => {
-      console.log("companylist", response)
-      this.companyList = response;
-      this.dtTrigger.next();
+      if (response.statusCode == "OK") {
+        console.log("companylist", response.response)
+        this.companyList = response.response;
+        this.dtTrigger.next();
+      }
     }, (error) => {
       this.notif.error(
         'NO DATA FOUND',

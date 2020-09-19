@@ -61,8 +61,8 @@ export class CompanyInformationComponent implements OnInit {
   getCompanyData(companyId: any) {
     console.log("edit company data")
     this.companyService.getCompanyDetails(companyId).subscribe((res: any) => {
-      if (res) {
-        this.companyDetails = res.company
+      if (res.statusCode=="OK") {
+        this.companyDetails = res.response.company
         if (this.companyDetails) {
           this.companyDetailsForm.get('company_name').setValue(this.companyDetails.companyName)
           this.companyDetailsForm.get('company_desc').setValue(this.companyDetails.companyDesc)
@@ -70,8 +70,8 @@ export class CompanyInformationComponent implements OnInit {
           this.companyDetailsForm.get('time_zone').setValue(this.companyDetails.timeZone)
           this.companyDetailsForm.get('company_alias').setValue(this.companyDetails.companyAlias)
         }
-        this.locationList = res.companyLocation
-        this.contactList = res.companyContact
+        this.locationList = res.response.companyLocation
+        this.contactList = res.response.companyContact
         console.log("company Details to show", this.companyDetails)
       }
     }, (error) => {

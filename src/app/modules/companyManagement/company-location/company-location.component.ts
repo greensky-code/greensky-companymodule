@@ -30,7 +30,7 @@ export class CompanyLocationComponent implements OnInit {
   ngOnInit() {
     this.parentcomapny = localStorage.getItem('companyName')
     this.companyservice.getState().subscribe((res) => {
-      this.state = res
+      this.state = res.response
     })
   }
   onChangeState(state: any) {
@@ -39,7 +39,7 @@ export class CompanyLocationComponent implements OnInit {
     this.locationForm.value.stateId = this.stateDeatil[0]
     this.locationForm.value.stateName = this.stateDeatil[1]
     this.companyservice.getcity(this.locationForm.value.stateId).subscribe((res) => {
-    this.city=res
+    this.city=res.response
     })
   }
   passBack() {

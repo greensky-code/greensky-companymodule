@@ -17,7 +17,9 @@ export class AssetsListComponent implements OnInit {
   ngOnInit() {
     this.companyId = localStorage.getItem('companyId')
     this.companyservice.getAssetDetail(this.companyId).subscribe((res) => {
-      this.assestList = res
+      if (res.statusCode == "OK") {
+        this.assestList = res.response
+      }
     })
   }
 

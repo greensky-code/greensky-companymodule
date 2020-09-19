@@ -16,13 +16,13 @@ export class AssetsAddEditComponent implements OnInit {
 
   ngOnInit() {
     this.companyservice.getAssestType().subscribe((res) => {
-      this.assestTypearr = res
+      this.assestTypearr = res.response
     })
     this.companyservice.getCompany().subscribe((res) => {
-      this.companyarr = res
+      this.companyarr = res.response
     })
     this.companyservice.getLocation().subscribe((res) => {
-      this.companyarr = res
+      this.companyarr = res.response
     })
   }
   close(){

@@ -26,7 +26,7 @@ export class CompanyContactComponent implements OnInit {
   ngOnInit() {
     this.parentcomapny=localStorage.getItem('companyName')   
    this.companyservice.getLocation().subscribe((res)=>{
-      this.locationarr = res
+      this.locationarr = res.response
     })
   }
  Save(){

@@ -13,7 +13,7 @@ export class CompanyServiceService {
   }
 
   getCompanyDetails(id : any) : Observable<any> {
-    return this.http.get(this.api_url+'/company/abc/'+id)
+    return this.http.get(this.api_url+'/company/details/'+id)
   }
   getState():Observable<any>{
     return this.http.get(this.api_url+'/company/states')
