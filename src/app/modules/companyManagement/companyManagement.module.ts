@@ -22,7 +22,7 @@ import { AssetsAddEditComponent } from './assets-add-edit/assets-add-edit.compon
         NgbModule,
         DataTablesModule
     ],
-    exports: [CompanyManagemmentComponent],
+    exports: [CompanyManagemmentComponent,AssetsAddEditComponent],
     declarations : [CompanyManagemmentComponent, CompanyDetailsComponent, CompanyInformationComponent, CompanyLocationComponent, CompanyContactComponent, AssetsListComponent, AssetsAddEditComponent],
     providers : [CompanyServiceService],
     entryComponents : [CompanyLocationComponent, CompanyContactComponent]

@@ -47,7 +47,8 @@
                                     <label class="form-check-label">Address 2</label>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                    <!-- <input class="form-control" placeholder="Address 2"> -->
+                                    <input class="form-control" formControlName="company_address1"
+                                        placeholder="Address 2">
                                 </div>
                             </div>
                         </div>
@@ -67,7 +68,7 @@
                                     <label class="form-check-label">Company Status</label>
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center">
-                                    <span>{{ companyDetails ? companyDetails.status_name : ""}}</span>
+                                    <span>{{ companyDetails?.statusId}}</span>
                                 </div>
                             </div>
                         </div>
@@ -110,8 +111,8 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let branch of locationList">
-                                    <td>{{branch.location_name}}</td>
-                                    <td>{{branch.location_address_1}}</td>
+                                    <td>{{branch.locationName}}</td>
+                                    <td>{{branch.locationAddress}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -149,8 +150,8 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let contact of contactList">
-                                    <td>{{contact.first_name + " " + contact.last_name}}</td>
-                                    <td>{{contact.email_address}}</td>
+                                    <td>{{contact.firstName + " " + contact.lastName}}</td>
+                                    <td>{{contact.emailAddress}}</td>
                                 </tr>
                             </tbody>
                         </table>

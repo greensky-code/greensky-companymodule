@@ -1,7 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CompanyServiceService } from '../company-service.service';
 import { Subject } from 'rxjs';
-import { Router ,ActivatedRoute } from '@angular/router'
+import { Router, ActivatedRoute } from '@angular/router'
+import { NotificationsService } from 'angular2-notifications';
 
 
 @Component({
@@ -11,17 +12,17 @@ import { Router ,ActivatedRoute } from '@angular/router'
 })
 export class CompanyDetailsComponent implements OnInit {
 
-  companyList : any = [];
+  companyList: any = [];
 
-  constructor(private companyService : CompanyServiceService, private router: Router, private route : ActivatedRoute ) { }
-  
+  constructor(private notif: NotificationsService, private companyService: CompanyServiceService, private router: Router, private route: ActivatedRoute) { }
 
-  dtOptions: DataTables.Settings = {};  
+
+  dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject();
 
-  
+
   ngOnInit() {
-    
+
     this.dtOptions = {
       pagingType: 'full_numbers',
       pageLength: 5,
@@ -30,21 +31,35 @@ export class CompanyDetailsComponent implements OnInit {
     this.getCompanyList()
   }
 
-  public getCompanyList(){
-    this.companyService.getCompanyList("").subscribe((response : any) => {
-      console.log("companylist", response.response.data)
-      this.companyList = response.response.data;
+  public getCompanyList() {
+    let companyId = localStorage.getItem('companyId')
+    this.dtTrigger.next();
+    this.companyService.getCompanyList(companyId).subscribe((response: any) => {
+      console.log("companylist", response)
+      this.companyList = response;
       this.dtTrigger.next();
+    }, (error) => {
+      this.notif.error(
+        'NO DATA FOUND',
+        '',
+        {
+          timeOut: 5000,
+          showProgressBar: true,
+          pauseOnHover: true,
+          clickToClose: true,
+          maxLength: 50
+        }
+      )
     })
   }
 
-  public goToCompanyInformation(companyDetails: any){
+  public goToCompanyInformation(companyDetails: any) {
 
-    if(companyDetails){
-      companyDetails = companyDetails.company_id  
+    if (companyDetails) {
+      companyDetails = companyDetails.companyId
     }
-    console.log("this.route",this.route, companyDetails)
-    this.router.navigate(['../companyInfo/' + companyDetails ],{relativeTo: this.route})
+    console.log("this.route", this.route, companyDetails)
+    this.router.navigate(['../companyInfo/' + companyDetails], { relativeTo: this.route })
   }
 
 }

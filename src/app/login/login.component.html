@@ -4,7 +4,7 @@
     <div class="card m-auto page-background col-md-5 col-lg-5 col-sm-12 col-xs-12  col-xl-5" style="top:35%">
         <div class="card-body">
             <div class="row">
-                <img class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-xl-4" src="..." alt="Card image cap">
+                <img class="col-md-4 col-lg-4 col-sm-12 col-xs-12 col-xl-4" src="assets/img/logo.png" alt="Card image cap">
                 <h5 class="page-TextColor col-md-8 col-lg-8 col-sm-12 col-xs-12 col-xl-8">Company Name</h5>
             </div>
             <br>
@@ -26,7 +26,7 @@
                             <label class="form-check-label page-TextColor">Login Id</label>
                         </div>
                         <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 col-xl-6">
-                            <input type="text" class="form-control" formControlName="login_id" aria-placeholder="enter the loginId">
+                            <input type="text" class="form-control" formControlName="userId" aria-placeholder="enter the loginId">
                             <div *ngIf="loginId.invalid && (loginId.dirty || loginId.touched)"
                                 class="alert alert-danger">
                                 <div *ngIf="loginId.errors.required" class="page-TextColor">

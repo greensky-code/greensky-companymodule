@@ -1,3 +1,4 @@
+<form [formGroup]='contactForm' autocomplete="off">
 <div class="modal-header">
   
 </div>
@@ -13,7 +14,7 @@
                                 <label class="form-check-label">First Name</label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                <input class="form-control" placeholder="First Name">
+                                <input class="form-control" placeholder="First Name" formControlName="firstName">
                             </div>
                         </div>
                         <div class="row mb-2 form-group">
@@ -21,7 +22,7 @@
                                 <label class="form-check-label">Last Name</label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                <input class="form-control" placeholder="Last Name">
+                                <input class="form-control" placeholder="Last Name" formControlName="lastName">
                             </div>
                         </div>                       
                         <div class="row mb-2 form-group">
@@ -29,7 +30,7 @@
                                 <label class="form-check-label">Email Address</label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                <input class="form-control" placeholder="Email Address">
+                                <input class="form-control" placeholder="Email Address" formControlName="emailAddress">
                             </div>
                         </div>
                         <div class="row mb-2 form-group">
@@ -37,7 +38,7 @@
                                 <label class="form-check-label">Primary Contact</label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                <input type="checkbox" class="form-control">
+                                <input type="checkbox" class="form-control" formControlName="primaryContact">
                             </div>
                         </div>
                         <div class="row mb-2 form-group">
@@ -45,7 +46,7 @@
                                 <label class="form-check-label">Organization</label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                               
+                               {{parentcomapny}}
                             </div>
                         </div>
                        
@@ -54,8 +55,11 @@
                                 <label class="form-check-label">Location</label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                <select class="form-control">
+                                <select class="form-control" formControlName="location">
                                     <option value="">Please select Location</option>
+                                    <option *ngFor="let item of locationarr" value="{{item.locationName}}">
+                                        {{item.locationName}}
+                                      </option>
                                 </select>
                             </div>
                         </div>
@@ -82,3 +86,4 @@
         </div>
     </div>
 </div>
+</form>

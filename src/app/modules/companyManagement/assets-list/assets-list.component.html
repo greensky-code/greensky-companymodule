@@ -19,12 +19,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let company of companyList">
-            <td (click)="goToAssetsDetails(company)">{{company.company_name}}</td>
-            <td>{{company.company_address}}</td>
-            <td></td>
-            <td></td>
-            <td>{{company.status_name}}</td>
+        <tr *ngFor="let company of assestList">
+            <td (click)="goToAssetsDetails(company)">{{company.assetName}}</td>
+            <td>{{company.companyName}}</td>
+            <td>{{company.assetTypeName}}</td>
+            <td>{{company.locationName}}</td>
+            <td>{{company.statusName}}</td>
         </tr>
     </tbody>
 </table>

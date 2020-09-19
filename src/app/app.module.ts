@@ -11,13 +11,14 @@ import { LoginComponent } from './login/login.component';
 
 import {DataTablesModule} from 'angular-datatables';
 
-
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
-    LoginComponent    
+    LoginComponent ,   
   ],
   imports: [
     BrowserModule,
@@ -26,7 +27,10 @@ import {DataTablesModule} from 'angular-datatables';
     FormsModule,
     HttpClientModule,
     CommonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SimpleNotificationsModule.forRoot(),
+    BrowserAnimationsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

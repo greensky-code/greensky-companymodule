@@ -21,10 +21,10 @@
       </thead>
       <tbody>
         <tr *ngFor="let company of companyList">
-          <td (click)="goToCompanyInformation(company)">{{company.company_name}}</td>
-          <td>{{company.company_address}}</td>
-          <td></td>
-          <td>{{company.status_name}}</td>
+          <td (click)="goToCompanyInformation(company)">{{company.companyId}}</td>
+          <td>{{company.companyAddress}}</td>
+          <td>{{company.companyName}}</td>
+          <td>{{company.statusName}}</td>
         </tr>
       </tbody>
     </table>

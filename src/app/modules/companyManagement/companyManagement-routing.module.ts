@@ -4,6 +4,7 @@ import { CompanyManagemmentComponent } from './company-managemment/company-manag
 import { CompanyDetailsComponent } from './company-details/company-details.component';
 import { CompanyInformationComponent } from './company-information/company-information.component';
 import { AssetsListComponent } from './assets-list/assets-list.component';
+import { AssetsAddEditComponent } from './assets-add-edit/assets-add-edit.component';
 
 const routes : Routes = [
     
@@ -13,7 +14,10 @@ const routes : Routes = [
           { path : "companyList" , component: CompanyDetailsComponent  },
           { path : "companyInfo" , component: CompanyInformationComponent}, 
           { path : "companyInfo/:id" , component: CompanyInformationComponent},
-          { path : "assestList" , component: AssetsListComponent  }          
+          { path : "assestList" , component: AssetsListComponent  }  , 
+          {path:"addeditassest",component:AssetsAddEditComponent},
+          {path:"addeditassest/:id",component:AssetsAddEditComponent}       
+       
         ]}
 ]
 
