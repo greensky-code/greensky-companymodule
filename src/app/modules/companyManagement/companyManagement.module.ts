@@ -12,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CompanyContactComponent } from './company-contact/company-contact.component';
 import { AssetsListComponent } from './assets-list/assets-list.component';
 import { AssetsAddEditComponent } from './assets-add-edit/assets-add-edit.component';
+import { AddnewcompanyComponent } from './addnewcompany/addnewcompany.component';
 
 
 @NgModule({
@@ -23,7 +24,7 @@ import { AssetsAddEditComponent } from './assets-add-edit/assets-add-edit.compon
         DataTablesModule
     ],
     exports: [CompanyManagemmentComponent,AssetsAddEditComponent],
-    declarations : [CompanyManagemmentComponent, CompanyDetailsComponent, CompanyInformationComponent, CompanyLocationComponent, CompanyContactComponent, AssetsListComponent, AssetsAddEditComponent],
+    declarations : [CompanyManagemmentComponent, CompanyDetailsComponent, CompanyInformationComponent, CompanyLocationComponent, CompanyContactComponent, AssetsListComponent, AssetsAddEditComponent, AddnewcompanyComponent],
     providers : [CompanyServiceService],
     entryComponents : [CompanyLocationComponent, CompanyContactComponent]
 })

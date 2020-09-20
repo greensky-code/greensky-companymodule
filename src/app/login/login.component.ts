@@ -34,6 +34,19 @@ export class LoginComponent implements OnInit {
   navigateToCompany() {
     console.log(this.loginForm.value)
     this.LoginServiceService.login(this.loginForm.value).subscribe(res => {
+      //  let res={
+      //    statusCode:"OK",
+      //    response:{
+      //     "loginId": "johnny",
+      //     "userId": "john378",
+      //     "password": "123456",
+      //     "firstName": "John",
+      //     "companyId": "datanucleus",
+      //     "companyName": "DataNucleus", 
+      //     "companyTypeName": "PARTNER" 
+      //    }
+      //  }
+
       if (res.statusCode == "OK") {
         let success = res.response
         localStorage.setItem("companyId", success.companyId);

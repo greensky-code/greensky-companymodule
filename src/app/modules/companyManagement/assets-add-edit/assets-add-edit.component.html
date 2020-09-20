@@ -10,7 +10,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="row mb-2 form-group">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                <label class="form-check-label">Asset Name</label>
+                                <label class="form-check-label">Asset Name</label><label style="color: red">*</label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <input class="form-control" placeholder="Asset Name">
@@ -18,7 +18,7 @@
                         </div>                       
                         <div class="row mb-2 form-group">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                <label class="form-check-label">Description</label>
+                                <label class="form-check-label">Description</label><label style="color: red">*</label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <input class="form-control" placeholder="Description">
@@ -26,7 +26,7 @@
                         </div>
                         <div class="row mb-2 form-group">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                <label class="form-check-label">Asset Type</label>
+                                <label class="form-check-label">Asset Type</label><label style="color: red">*</label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                <select class="form-control">
@@ -39,20 +39,20 @@
                         </div>
                         <div class="row mb-2 form-group">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                <label class="form-check-label">Company</label>
+                                <label class="form-check-label">Company</label><label style="color: red">*</label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                <select class="form-control">
                                    <option value="">Please select Company</option>
-                                   <option *ngFor="let item of companyarr" value="{{item.companyId}},{{item.companyName}}">
-                                    {{item.companyName}}
+                                   <option *ngFor="let item1 of companyarr" value="{{item1.companyId}},{{item1.companyName}}">
+                                    {{item1.companyName}}
                                   </option>
                                </select>
                             </div>
                         </div>
                         <div class="row mb-2 form-group">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                <label class="form-check-label">Location</label>
+                                <label class="form-check-label">Location</label><label style="color: red">*</label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <select class="form-control">

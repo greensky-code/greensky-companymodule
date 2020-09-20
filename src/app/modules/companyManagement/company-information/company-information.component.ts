@@ -36,6 +36,7 @@ export class CompanyInformationComponent implements OnInit {
       "company_address1": new FormControl('', [Validators.required]),
       "time_zone": new FormControl('', [Validators.required]),
       "company_alias": new FormControl('', [Validators.required]),
+      "status": new FormControl('', [Validators.required]),
 
     })
   }
@@ -61,18 +62,36 @@ export class CompanyInformationComponent implements OnInit {
   getCompanyData(companyId: any) {
     console.log("edit company data")
     this.companyService.getCompanyDetails(companyId).subscribe((res: any) => {
-      if (res.statusCode=="OK") {
-        this.companyDetails = res.response.company
+
+      if (res.statusCode == "OK") {
+        this.companyDetails = res.response.type
         if (this.companyDetails) {
           this.companyDetailsForm.get('company_name').setValue(this.companyDetails.companyName)
           this.companyDetailsForm.get('company_desc').setValue(this.companyDetails.companyDesc)
           this.companyDetailsForm.get('company_address').setValue(this.companyDetails.companyAddress)
           this.companyDetailsForm.get('time_zone').setValue(this.companyDetails.timeZone)
           this.companyDetailsForm.get('company_alias').setValue(this.companyDetails.companyAlias)
+          if (this.companyDetails.statusId == "A") {
+            this.companyDetailsForm.get('status').setValue("ACTIVE")
+          } else {
+            this.companyDetailsForm.get('status').setValue("INACTIVE")
+          }
         }
         this.locationList = res.response.companyLocation
         this.contactList = res.response.companyContact
         console.log("company Details to show", this.companyDetails)
+      } else {
+        this.notif.error(
+          'NO DATA FOUND',
+          '',
+          {
+            timeOut: 5000,
+            showProgressBar: true,
+            pauseOnHover: true,
+            clickToClose: true,
+            maxLength: 50
+          }
+        )
       }
     }, (error) => {
       this.notif.error(
@@ -99,5 +118,7 @@ export class CompanyInformationComponent implements OnInit {
     console.log("inside the modal open function")
     this.modalService.open(CompanyContactComponent)
   }
-
+  gotoaddcompany(){
+    this.router.navigate(['../../addeditcompany/'+this.companyId], { relativeTo: this.route })
+  }
 }

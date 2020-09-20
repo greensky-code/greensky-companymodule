@@ -1,0 +1,120 @@
+<div class="container-fluid">
+
+    <div class="card">
+        <div class="card-body">
+            <form [formGroup]="companyDetailsForm">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
+                    <div class="row">
+                        <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12"> -->
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <div class="row mb-2 form-group">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <label class="form-check-label">Name</label><label style="color: red">*</label>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <input class="form-control" formControlName="company_name" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="row mb-2 form-group">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <label class="form-check-label">Description</label><label style="color: red">*</label>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <input class="form-control" formControlName="company_desc" placeholder="Description">
+                                </div>
+                            </div>
+                            <div class="row mb-2 form-group">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <label class="form-check-label">Time Zone</label><label style="color: red">*</label>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <input class="form-control" formControlName="time_zone" placeholder="Time Zone">
+                                </div>
+                            </div>
+                            <div class="row mb-2 form-group">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <label class="form-check-label">Address </label><label style="color: red">*</label>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <input class="form-control" formControlName="company_address" placeholder="Address ">
+                                </div>
+                            </div>
+                            <div class="row mb-2 form-group">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <label class="form-check-label">Address 2</label><label style="color: red">*</label>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <input class="form-control" formControlName="company_address1" placeholder="Address 2">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                            <div class="row mb-2 form-group">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <label class="form-check-label">Company Alias</label><label style="color: red">*</label>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <input class="form-control" formControlName="company_alias" placeholder="Company Alias">
+                                </div>
+                            </div>
+                            <div class="row mb-2 form-group">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <label class="form-check-label">Company Status</label><label style="color: red">*</label>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 text-center">
+                                    <input class="form-control" formControlName="status" placeholder="status">
+                                </div>
+                            </div>
+                            <div class="row mb-2 form-group">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <label class="form-check-label">Company Type</label><label style="color: red">*</label>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <select class="form-control" formControlName="companyType">
+                                        <option value="123">Please select Type</option>
+                                        <!-- <option *ngFor="let item of state" value="{{item.stateid}},{{item.stateName}}">
+                                            {{item.stateName}}
+                                        </option> -->
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row mb-2 form-group">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <label class="form-check-label">Country</label><label style="color: red">*</label>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <select class="form-control" formControlName="countryId">
+                                        <option value="123">Please select Country</option>
+                                        <!-- <option *ngFor="let item of state" value="{{item.stateid}},{{item.stateName}}">
+                                            {{item.stateName}}
+                                        </option> -->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
+                            <button [disabled]="!companyDetailsForm.valid" (click)="submit()" type="submit" class="btn btn-outline-secondary float-right">Submit</button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+    <br>
+
+
+
+
+
+</div>

@@ -42,4 +42,7 @@ export class CompanyServiceService {
   getAssetDetail(id):Observable<any>{
     return this.http.get(this.api_url+'/asset/asset-list/'+id)
   }
+  createcompany(reqbody):Observable<any>{
+    return this.http.post(this.api_url+'/company/create-company',reqbody)
+  }
 }

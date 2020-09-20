@@ -20,10 +20,6 @@ export class CompanyLocationComponent implements OnInit {
       locationAddress: new FormControl('', [Validators.required]),
       locationAddress1: new FormControl('', [Validators.required]),
       locationDes: new FormControl('', [Validators.required]),
-      stateId: new FormControl('', [Validators.required]),
-      cityId: new FormControl('', [Validators.required]),
-      cityName: new FormControl('', [Validators.required]),
-      stateName: new FormControl('', [Validators.required])
     });
   }
 
@@ -53,6 +49,16 @@ export class CompanyLocationComponent implements OnInit {
     this.locationForm.value.stateName = this.stateDeatil[1]
     this.locationForm.value.cityId = this.cityDetail[0]
     this.locationForm.value.cityName = this.cityDetail[1]
-    console.log(this.locationForm.value)
+    let reqbody={
+      "address1": this.locationForm.value.locationAddress,
+      "address2": this.locationForm.value.locationAddress1,
+      "branchDesc": this.locationForm.value.locationDes,
+      "branchId": "null",
+      "branchName": this.locationForm.value.locationName,
+      "cityId": this.locationForm.value.cityId,   
+      "companyId": "1234", 
+      "stateId": "CAL", 
+      "userId": "string"
+    }
   }
 }

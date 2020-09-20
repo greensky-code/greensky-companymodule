@@ -11,7 +11,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                         <div class="row mb-2 form-group">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                <label class="form-check-label">Branch Name</label>
+                                <label class="form-check-label">Branch Name</label><label style="color: red">*</label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <input class="form-control" placeholder="Branch Name" formControlName="locationName">
@@ -19,7 +19,7 @@
                         </div>
                         <div class="row mb-2 form-group">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                <label class="form-check-label">Branch Description</label>
+                                <label class="form-check-label">Branch Description</label><label style="color: red">*</label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <input class="form-control" placeholder="Branch Description"  formControlName="locationDes">
@@ -27,7 +27,7 @@
                         </div>                       
                         <div class="row mb-2 form-group">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                <label class="form-check-label">Address 1</label>
+                                <label class="form-check-label">Address 1</label><label style="color: red">*</label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <input class="form-control" placeholder="Address 1"  formControlName="locationAddress">
@@ -35,7 +35,7 @@
                         </div>
                         <div class="row mb-2 form-group">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                <label class="form-check-label">Address 2</label>
+                                <label class="form-check-label">Address 2</label><label style="color: red">*</label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <input class="form-control" placeholder="Address 2"  formControlName="locationAddress1">
@@ -51,7 +51,7 @@
                         </div>
                         <div class="row mb-2 form-group">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                <label class="form-check-label">State</label>
+                                <label class="form-check-label">State</label><label style="color: red">*</label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                <select class="form-control" formControlName="stateId" (change)="onChangeState($event.target.value)">
@@ -64,7 +64,7 @@
                         </div>
                         <div class="row mb-2 form-group">
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                                <label class="form-check-label">City</label>
+                                <label class="form-check-label">City</label><label style="color: red">*</label>
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
                                 <select class="form-control" formControlName="cityId" (change)="onChangeCity($event.target.value)">
@@ -93,7 +93,7 @@
                 </button>
             </div>
             <div class="col-sm-12 col-xs-12 col-md-6 col-lg-6 col-xl-6">
-                <button (click)="save()" type="submit" class="btn btn-secondary float-right">Save</button>
+                <button [disabled]="!locationForm.valid" (click)="save()" type="submit" class="btn btn-secondary float-right">Save</button>
             </div>
         </div>
     </div>

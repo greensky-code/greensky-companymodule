@@ -18,14 +18,12 @@ export class CompanyDetailsComponent implements OnInit {
 
 
   dtOptions: DataTables.Settings = {};
-  dtTrigger: Subject<any> = new Subject();
 
 
   ngOnInit() {
 
     this.dtOptions = {
       pagingType: 'full_numbers',
-      pageLength: 5,
     };
 
     this.getCompanyList()
@@ -33,12 +31,22 @@ export class CompanyDetailsComponent implements OnInit {
 
   public getCompanyList() {
     let companyId = localStorage.getItem('companyId')
-    this.dtTrigger.next();
     this.companyService.getCompanyList(companyId).subscribe((response: any) => {
       if (response.statusCode == "OK") {
         console.log("companylist", response.response)
         this.companyList = response.response;
-        this.dtTrigger.next();
+      } else {
+        this.notif.error(
+          'NO DATA FOUND',
+          '',
+          {
+            timeOut: 5000,
+            showProgressBar: true,
+            pauseOnHover: true,
+            clickToClose: true,
+            maxLength: 50
+          }
+        )
       }
     }, (error) => {
       this.notif.error(
@@ -63,5 +71,7 @@ export class CompanyDetailsComponent implements OnInit {
     console.log("this.route", this.route, companyDetails)
     this.router.navigate(['../companyInfo/' + companyDetails], { relativeTo: this.route })
   }
-
+  gotoaddcompany(){
+    this.router.navigate(['../addeditcompany'], { relativeTo: this.route })
+  }
 }

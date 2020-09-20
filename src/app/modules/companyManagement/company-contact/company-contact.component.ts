@@ -18,7 +18,6 @@ export class CompanyContactComponent implements OnInit {
       emailAddress: new FormControl('', [Validators.required]),
       primaryContact: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
-      org: new FormControl('', [Validators.required]),
       location: new FormControl('', [Validators.required]),
     });
    }

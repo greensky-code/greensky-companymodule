@@ -18,11 +18,12 @@ export class AssetsAddEditComponent implements OnInit {
     this.companyservice.getAssestType().subscribe((res) => {
       this.assestTypearr = res.response
     })
-    this.companyservice.getCompany().subscribe((res) => {
-      this.companyarr = res.response
+    this.companyservice.getCompany().subscribe((res1) => {
+      this.companyarr = res1.response
+      console.log(this.companyarr)
     })
-    this.companyservice.getLocation().subscribe((res) => {
-      this.companyarr = res.response
+    this.companyservice.getLocation().subscribe((res2) => {
+      this.locationarr = res2.response
     })
   }
   close(){
