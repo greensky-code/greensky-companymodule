@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-company-managemment',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./company-managemment.component.css']
 })
 export class CompanyManagemmentComponent implements OnInit {
-
-  constructor() { }
+  step:string="";
+  constructor(
+    private router:Router
+  ) { }
 
   ngOnInit() {
+    console.log("this.url",this.router.url)
+    this.step = this.router.url;
+  }
+
+  active(){
+    console.log("this.url",this.router.url)
+
+    this.step = this.router.url;
+
   }
 
 }

@@ -3,6 +3,7 @@ import { AssetsAddEditComponent } from '../assets-add-edit/assets-add-edit.compo
 import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 import { Router, ActivatedRoute } from '@angular/router'
 import { CompanyServiceService } from '../company-service.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-assets-list',
@@ -11,14 +12,26 @@ import { CompanyServiceService } from '../company-service.service';
 })
 export class AssetsListComponent implements OnInit {
   companyId: any
-  assestList: any
+  assestList: any;
+
+
+  dtTrigger = new Subject();
+
+  dtOptions: DataTables.Settings = {}; 
+
   constructor(private companyservice: CompanyServiceService, private modalService: NgbModal, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+
+    };
     this.companyId = localStorage.getItem('companyId')
     this.companyservice.getAssetDetail(this.companyId).subscribe((res) => {
       if (res.statusCode == "OK") {
-        this.assestList = res.response
+        this.dtTrigger.next();
+        this.assestList = res.response;
       }
     })
   }
@@ -30,5 +43,9 @@ export class AssetsListComponent implements OnInit {
   goToAssetsDetails(company) {
     console.log("this.route", this.route, company.assetId)
     this.router.navigate(['../addeditassest/' + company.assetId], { relativeTo: this.route })
+  }
+
+  ngOnDestroy(): void {
+    this.dtTrigger.unsubscribe();
   }
 }

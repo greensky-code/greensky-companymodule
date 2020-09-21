@@ -14,6 +14,8 @@ import {DataTablesModule} from 'angular-datatables';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
+// import { HttpClientModule, HttpClient } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,

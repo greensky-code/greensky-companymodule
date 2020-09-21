@@ -47,6 +47,12 @@ export class LoginComponent implements OnInit {
       //    }
       //  }
 
+      // localStorage.setItem("companyId", "datanucleus");
+      // localStorage.setItem('loginId', "johnny")
+      // localStorage.setItem('companyName', "DataNucleus")
+      // localStorage.setItem('companyTypeName', "PARTNER")
+      //   this.router.navigate(['company'])
+
       if (res.statusCode == "OK") {
         let success = res.response
         localStorage.setItem("companyId", success.companyId);
@@ -93,6 +99,7 @@ export class LoginComponent implements OnInit {
         }
       )
     })
-  }
+  // })
 
+}
 }

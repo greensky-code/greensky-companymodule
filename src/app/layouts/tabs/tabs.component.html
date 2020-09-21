@@ -4,11 +4,11 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                 <!-- <div class="row"> -->
                     <nav class="navbar navbar-expand-lg navbar-light nav nav-pills w-100">
-                        <a class="nav-item nav-link active" href="javascript:void(0)" (click)="navigateTo('companyManagement/companyList')">Company Managemment</a>
-                        <a class="nav-item nav-link" href="javascript:void(0)" (click)="navigateTo('deviceManagement/deviceList')">Device Managemment</a>
-                        <a class="nav-item nav-link" href="javascript:void(0)" (click)="navigateTo()">White Label</a>
-                        <a class="nav-item nav-link" href="javascript:void(0)" (click)="navigateTo()">Security</a>
-                        <a class="nav-item nav-link float-right" href="javascript:void(0)" (click)="navigateTo()">Internal Portal</a>   
+                        <a class="nav-item nav-link " [ngClass]= "{'active': step ==='/company/companyManagement/companyList'}" href="javascript:void(0)" (click)="navigateTo('companyManagement/companyList')">Company Managemment</a>
+                        <a class="nav-item nav-link" [ngClass]= "{'active': step ==='/company/deviceManagement/deviceList'}" href="javascript:void(0)" (click)="navigateTo('deviceManagement/deviceList')">Device Managemment</a>
+                        <a class="nav-item nav-link" [ngClass]= "{'active': step ==='/company/companyManagement/demo'}"  href="javascript:void(0)" (click)="navigateTo()">White Label</a>
+                        <a class="nav-item nav-link" [ngClass]= "{'active': step ==='/company/companyManagement/demo'}" href="javascript:void(0)" (click)="navigateTo()">Security</a>
+                        <a class="nav-item nav-link float-right" [ngClass]= "{'active': step ==='/company/companyManagement/demo'}" href="javascript:void(0)" (click)="navigateTo()">Internal Portal</a>   
                     </nav>
                 <!-- </div> -->
             </div>

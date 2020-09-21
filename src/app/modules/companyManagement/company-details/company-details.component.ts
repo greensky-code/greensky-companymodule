@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy,ViewChild } from '@angular/core';
 import { CompanyServiceService } from '../company-service.service';
 import { Subject } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router'
@@ -10,12 +10,13 @@ import { NotificationsService } from 'angular2-notifications';
   templateUrl: './company-details.component.html',
   styleUrls: ['./company-details.component.css']
 })
-export class CompanyDetailsComponent implements OnInit {
+export class CompanyDetailsComponent implements OnDestroy, OnInit {
 
   companyList: any = [];
 
   constructor(private notif: NotificationsService, private companyService: CompanyServiceService, private router: Router, private route: ActivatedRoute) { }
 
+  dtTrigger = new Subject();
 
   dtOptions: DataTables.Settings = {};
 
@@ -24,6 +25,7 @@ export class CompanyDetailsComponent implements OnInit {
 
     this.dtOptions = {
       pagingType: 'full_numbers',
+
     };
 
     this.getCompanyList()
@@ -35,6 +37,7 @@ export class CompanyDetailsComponent implements OnInit {
       if (response.statusCode == "OK") {
         console.log("companylist", response.response)
         this.companyList = response.response;
+        this.dtTrigger.next();
       } else {
         this.notif.error(
           'NO DATA FOUND',
@@ -74,4 +77,10 @@ export class CompanyDetailsComponent implements OnInit {
   gotoaddcompany(){
     this.router.navigate(['../addeditcompany'], { relativeTo: this.route })
   }
+
+  ngOnDestroy(): void {
+    // Do not forget to unsubscribe the event
+    this.dtTrigger.unsubscribe();
+  }
+
 }

@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/Http'
+import { HttpClient } from '@angular/common/Http'  
+// import { HttpClient} from '@angular/common/http'; // new
+
 import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment.prod';
 environment
@@ -44,5 +46,13 @@ export class CompanyServiceService {
   }
   createcompany(reqbody):Observable<any>{
     return this.http.post(this.api_url+'/company/create-company',reqbody)
+  }
+
+  createBranch(reqbody):Observable<any>{
+    return this.http.post(this.api_url+'/company/branch',reqbody)
+  }
+
+  createContact(reqbody):Observable<any>{
+    return this.http.post(this.api_url+'/company/contact',reqbody)
   }
 }

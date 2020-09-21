@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 import { CompanyServiceService } from '../company-service.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { NotificationsService } from 'angular2-notifications';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-company-contact',
@@ -12,7 +14,9 @@ export class CompanyContactComponent implements OnInit {
   contactForm: FormGroup;
   parentcomapny: any
   locationarr:any
-  constructor(private activeModal : NgbActiveModal,private companyservice: CompanyServiceService) {
+  constructor(private activeModal : NgbActiveModal,private companyservice: CompanyServiceService,
+    private notif :NotificationsService,
+    private router:Router) {
     this.contactForm = new FormGroup({
       firstName: new FormControl('', [Validators.required]),
       emailAddress: new FormControl('', [Validators.required]),
@@ -28,7 +32,49 @@ export class CompanyContactComponent implements OnInit {
       this.locationarr = res.response
     })
   }
- Save(){
-   console.log(this.contactForm.value)
- }
-}
+  save() {
+    this.contactForm.value.companyId =  localStorage.getItem("companyId") || "";
+    console.log("--",this.contactForm.value)
+    this.companyservice.createContact(this.contactForm.value).subscribe((res) => {
+      console.log("res of loca",res)
+      if (res.statusCode == "CREATED") {
+        this.notif.success(
+          'Success',
+          res.statusCode,
+          {
+            timeOut: 5000,
+            showProgressBar: true,
+            pauseOnHover: true,
+            clickToClose: true,
+            maxLength: 50
+          }
+        )
+        this.router.navigate(['../companyList'])
+      }else{
+        this.notif.error(
+          'Error while creating',
+          '',
+          {
+            timeOut: 5000,
+            showProgressBar: true,
+            pauseOnHover: true,
+            clickToClose: true,
+            maxLength: 50
+          }
+        )
+      }
+    }, (error) => {
+      console.log("err",error)
+      this.notif.error(
+        'Error',
+        '',
+        {
+          timeOut: 5000,
+          showProgressBar: true,
+          pauseOnHover: true,
+          clickToClose: true,
+          maxLength: 50
+        }
+      )
+    })
+  }}

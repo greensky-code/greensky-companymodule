@@ -35,7 +35,7 @@ export class AddnewcompanyComponent implements OnInit {
   }
   submit() {
     console.log(this.companyDetailsForm.value)
-    let parentcompany = localStorage.getItem("companyId")
+    let parentcompany = localStorage.getItem("companyId");
     let reqbody = {
       "companyAddress1": this.companyDetailsForm.value.company_address,
       "companyAddress2": this.companyDetailsForm.value.company_address1,
